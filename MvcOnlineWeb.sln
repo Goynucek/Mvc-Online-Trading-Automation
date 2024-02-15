@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcOnlineWeb", "MvcOnlineWeb\MvcOnlineWeb.csproj", "{FA3872B6-C75D-47AC-9191-59FFB7F6786F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FA3872B6-C75D-47AC-9191-59FFB7F6786F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA3872B6-C75D-47AC-9191-59FFB7F6786F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA3872B6-C75D-47AC-9191-59FFB7F6786F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA3872B6-C75D-47AC-9191-59FFB7F6786F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {409C294D-C588-4D98-99AD-AB579E5E6978}
+	EndGlobalSection
+EndGlobal

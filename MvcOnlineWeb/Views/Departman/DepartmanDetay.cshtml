@@ -1,0 +1,27 @@
+﻿@using MvcOnlineWeb.Models.Classes
+@model List<Personel>
+@{
+    ViewBag.Title = "DepartmanDetay";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>@ViewBag.departmanadi</h2>
+<br/>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Personeller</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.PersonelId</td>
+                <td>@x.PersonelAd</td>
+                <td>@x.PersonelSoyad</td>
+                <td><a href="/Departman/DepartmanPersonelSatıs/@x.PersonelId" class="btn btn-danger">Satış Detayları</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,46 @@
+﻿@using MvcOnlineWeb.Models.Classes
+@model List<Cari>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Cari</li>
+    </ol>
+</nav>
+<br />
+<table class="table table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>#</th>
+            <th>ADI</th>
+            <th>SOYADI</th>
+            <th>UNVAN</th>
+            <th>SEHİR</th>
+            <th>MAİL</th>
+            <th>SİL</th>
+            <th>GÜNCELLE</th>
+            <th>DETAYLAR</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.CariID</td>
+                <td>@x.CariAd</td>
+                <td>@x.CariSoyad</td>
+                <td>@x.CariUnvan</td>
+                <td>@x.CariSehir</td>
+                <td>@x.CariMail</td>
+                <td><a href="/Cari/CariSil/@x.CariID" class="btn btn-danger">Sil</td>
+                <td><a href="/Cari/CariGuncelle/@x.CariID" class="btn btn-success">Güncelle</td>
+                <td><a href="/Cari/CariDetay/@x.CariID" class="btn btn-info">Detaylar</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Cari/CariEkle" class="btn btn-primary">Ekle</a>

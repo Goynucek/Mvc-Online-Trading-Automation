@@ -1,0 +1,47 @@
+﻿@using MvcOnlineWeb.Models.Classes
+@model List<Fatura>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Faturalar</li>
+    </ol>
+</nav>
+
+<table class="table table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>#</th>
+            <th>Fatura Seri No</th>
+            <th>Fatura Sıra No</th>
+            <th>Tarih</th>
+            <th>Vergi Dairesi</th>
+            <th>Saat</th>
+            <th>Teslim Eden</th>
+            <th>Teslim Alan</th>
+            <th>Güncelle</th>
+            <th>Detaylar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.FaturaId</td>
+                <td>@x.FaturaSeriNo</td>
+                <td>@x.FaturaSıraNo</td>
+                <td>@x.Tarih</td>
+                <td>@x.VergiDairesi</td>
+                <td>@x.Saat</td>
+                <td>@x.TeslimEden</td>
+                <td>@x.TeslimAlan</td>
+                <td><a class="btn btn-success" href="/Fatura/FaturaGuncelle/@x.FaturaId">Güncelle</td>
+                <td><a class="btn btn-info" href="/Fatura/FaturaDetay/@x.FaturaId">Detaylar</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a class="btn btn-primary" href="/Fatura/YeniFatura">Ekle</a>

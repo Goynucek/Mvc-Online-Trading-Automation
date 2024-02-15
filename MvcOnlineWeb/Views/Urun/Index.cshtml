@@ -1,0 +1,52 @@
+﻿@using MvcOnlineWeb.Models.Classes
+@using PagedList.Mvc
+@using PagedList
+@model PagedList.IPagedList<Urun>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Ürünler</li>
+    </ol>
+</nav>
+
+<table class="table table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Ürün</th>
+            <th>Marka</th>
+            <th>Stok</th>
+            <th>Alış Fiyatları</th>
+            <th>Kategori</th>
+            <th>Görsel</th>
+            <th>Ürün Sil</th>
+            <th>Ürün Güncelle</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var u in Model)
+        {
+            <tr>
+                <td><a href="#">@u.UrunId</td>
+                <td><a href="#">@u.UrunAd</td>
+                <td><a href="#">@u.Marka</td>
+                <td><a href="#">@u.Stok</td>
+                <td><a href="#">@u.AlisFiyat</td>
+                <td><a href="#">@u.Kategori.KategoriAd</td>
+                <td><a href="#"><img src="@u.UrunGorsel" style="width:50px; height:50px"></td>
+                <td><a href="/Urun/UrunSil/@u.UrunId" class="btn btn-danger">Ürün sil</td>
+                <td><a href="/Urun/UrunGuncelle/@u.UrunId" class="btn btn-success">Güncelle</td>
+            </tr>
+        }
+    </tbody>
+</thead>
+</table>
+@Html.PagedListPager((IPagedList)Model,sayfa => Url.Action("Index",new {sayfa}));
+
+<a href="/Urun/UrunEkle" class="btn btn-primary">Ürün Ekle</a>
+

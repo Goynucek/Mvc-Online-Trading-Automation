@@ -1,0 +1,36 @@
+﻿@using MvcOnlineWeb.Models.Classes
+@model List<SatisHareket>
+
+@{
+    ViewBag.Title = "DepartmanPersonelSatıs";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>DepartmanPersonelSatıs</h2>
+<br/>
+<h2>@ViewBag.elemanisim</h2>
+<br/>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Tarih</th>
+            <th>Adet</th>
+            <th>ToplumTutar</th>
+            <th>Fiyat</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.SatisId</td>
+                <td>@x.Tarih</td>
+                <td>@x.Adet</td>
+                <td>@x.ToplamTutar</td>
+                <td>@x.Fiyat</td>
+            </tr>
+        }
+
+    </tbody>
+</table>

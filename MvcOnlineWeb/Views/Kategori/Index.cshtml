@@ -1,0 +1,36 @@
+﻿@using MvcOnlineWeb.Models.Classes
+@model List<Kategori>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Kategoriler</li>
+    </ol>
+</nav>
+
+<table class="table table-bordered" style="margin-top:2em">
+    <thead class="table-dark">
+        <tr>
+            <th>#</th>
+            <th>Kategori Adı</th>
+            <th>Sil</a></th>
+            <th>Güncelle</a></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var k in Model)
+        {
+            <tr>
+                <td><a href="#">@k.KategoriID</a></td>
+                <td><a href="#">@k.KategoriAd</a></td>
+                <td><a href="/Kategori/KategoriSil/@k.KategoriID" class="btn btn-danger">Sil</a></td>
+                <td><a href="/Kategori/KategoriGetir/@k.KategoriID" class="btn btn-success">Güncelle</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Kategori/KategoriEkle" class="btn btn-primary">Kategori Ekle</a>
+

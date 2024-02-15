@@ -1,0 +1,21 @@
+﻿@model MvcOnlineWeb.Models.Classes.Personel
+@{
+    ViewBag.Title = "PersonelEkle";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<form class="form-control" method="post">
+    <div class="form-group">
+        @Html.LabelFor(x => x.PersonelAd);
+        @Html.TextBoxFor(x => x.PersonelAd, new { @class = "form-control" });
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.PersonelSoyad);
+        @Html.TextBoxFor(x => x.PersonelSoyad, new { @class = "form-control" });
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.DepartmanId);
+        @Html.TextBoxFor(x => x.DepartmanId, new { @class = "form-control" });
+    </div>
+    <button class="btn btn-dark">Ekle</button>
+</form>

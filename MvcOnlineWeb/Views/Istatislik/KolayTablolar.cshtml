@@ -1,0 +1,111 @@
+﻿@using MvcOnlineWeb.Models.Classes
+@model List<Istatislik>
+@{
+    ViewBag.Title = "KolayTablolar";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AdminLTE 3 | Simple Tables</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body class="hold-transition sidebar-mini">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">Hızlı İstatislikler</li>
+        </ol>
+    </nav>
+    </br>
+    <div class="row" style="display:flex; justify-content:space-around">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">En çok Satış Yapılan Şehirler</h3>
+
+                <div class="card-tools">
+                    <ul class="pagination pagination-sm float-right">
+                        <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body p-0">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th style="width: 10px">#</th>
+                            <th>Task</th>
+                            <th>Progress</th>
+                            <th style="width: 40px">Label</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{int sayi = 0;}
+                        @foreach (var x in Model)
+                        {
+                            <tr>
+                                <td>@{sayi++;} @sayi</td>
+                                <td>@x.Sehir</td>
+                                <td>
+                                    <div class="progress progress-xs">
+                                        @if (x.Sayi == 1)
+                                        {
+                                            <div class="progress-bar progress-bar-danger bg-danger" style="width: 25%"></div>
+                                        }
+                                        else if (x.Sayi == 2)
+                                        {
+                                            <div class="progress-bar progress-bar-info bg-info" style="width: 50%"></div>
+                                        }
+                                        else if (x.Sayi == 3)
+                                        {
+                                            <div class="progress-bar progress-bar-success bg-primary" style="width: 75%"></div>
+                                        }
+                                        else
+                                        {
+                                            <div class="progress-bar progress-bar-success bg-success" style="width: 100%"></div>
+                                        }
+                                    </div>
+                                </td>
+                                <td><span class="badge bg-danger">@x.Sayi</span></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        @Html.Action("Partial1", "Istatislik")
+        @Html.Action("Partial4", "Istatislik")
+    </div>
+    </br>
+    @Html.Action("Partial2", "Istatislik")
+    </br>
+    @Html.Action("Partial3", "Istatislik")
+
+
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+    <script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="~/AdminLTE-3.0.4/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/AdminLTE-3.0.4/dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="~/AdminLTE-3.0.4/dist/js/demo.js"></script>
+</body>
+</html>

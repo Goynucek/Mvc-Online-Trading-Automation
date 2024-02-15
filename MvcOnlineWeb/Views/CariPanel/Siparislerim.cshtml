@@ -1,0 +1,30 @@
+﻿@using MvcOnlineWeb.Models.Classes
+@model List<SatisHareket>
+@{
+    ViewBag.Title = "Siparislerim";
+    Layout = "~/Views/Shared/_CariLayout.cshtml";
+}
+
+<h2>Siparislerim</h2>
+<br/>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Tarih</th>
+            <th>Adet</th>
+            <th>Fiyat</th>
+            <th>Toplam Tutar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model) { 
+            <tr>
+                <td>@x.Tarih</td>
+                <td>@x.Adet</td>
+                <td>@x.Fiyat</td>
+                <td>@x.ToplamTutar</td>
+            </tr>
+        }
+    </tbody>
+</table>

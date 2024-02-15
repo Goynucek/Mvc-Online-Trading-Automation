@@ -1,0 +1,81 @@
+﻿@using MvcOnlineWeb.Models.Classes
+@model List<Personel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Personeller</li>
+    </ol>
+</nav>
+
+@*<table class="table table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>#</th>
+            <th>Personel Adı</th>
+            <th>Personel Soyadı</th>
+            <th>Personel Departman</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.PersonelId</td>
+                <td>@x.PersonelAd</td>
+                <td>@x.PersonelSoyad</td>
+                <td>@x.Departman.DepartmanAd</td>
+                <td><a href="/Personel/PersonelSil/@x.PersonelId" class="btn btn-danger">Sil</td>
+                <td><a href="/Personel/PersonelGuncelle/@x.PersonelId" class="btn btn-success">Güncelle</td>
+            </tr>
+        }
+    </tbody>
+</table>*@
+
+
+
+<div class="card-body pb-0">
+    <div class="row d-flex align-items-stretch">
+        @foreach (var x in Model)
+        {
+            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
+                <div class="card bg-light">
+                    <div class="card-header text-muted border-bottom-0">
+                        @x.Departman.DepartmanAd
+                    </div>
+                    <div class="card-body pt-0">
+                        <div class="row">
+                            <div class="col-7">
+                                <h2 class="lead"><b>@x.PersonelAd</b></h2>
+                                <ul class="ml-4 mb-0 fa-ul text-muted">
+                                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
+                                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
+                                </ul>
+                            </div>
+                            <div class="col-5 text-center">
+                                <img src="@x.PersonelGorsel" style="width:200px; height:100px;" alt="" class="img-circle img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="text-right">
+                            <a  href="/Personel/PersonelSil/@x.PersonelId" class="btn btn-sm bg-danger">
+                                <i class="fas fa-ban"></i>Remove
+                            </a>
+                            <a href="/Personel/PersonelGuncelle/@x.PersonelId" class="btn btn-sm btn-success">
+                                <i class="fas fa-user"></i> Update
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<a href="/Personel/PersonelEkle" class="btn btn-primary">Ekle</a>
+

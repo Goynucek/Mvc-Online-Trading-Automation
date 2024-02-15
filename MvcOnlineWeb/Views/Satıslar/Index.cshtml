@@ -1,0 +1,43 @@
+﻿@using MvcOnlineWeb.Models.Classes
+@model List<SatisHareket>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Satışlar</li>
+    </ol>
+</nav>
+
+<table class="table table-bordered">
+    <thead class="table table-dark">
+        <tr>
+            <th>#</th>
+            <th>Müşteri Adı</th>
+            <th>Personel Adı</th>
+            <th>Ürün Adı</th>
+            <th>Tarih</th>
+            <th>Adet</th>
+            <th>Toplam Tutar</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+
+        </tr>
+    </thead>
+    @foreach (var u in Model)
+    {
+        <tr>
+            <td><a href="#">@u.SatisId</td>
+            <td><a href="#">@u.Cari.CariAd @u.Cari.CariSoyad</td>
+            <td><a href="#">@u.Personel.PersonelAd</td>
+            <td><a href="#">@u.urun.UrunAd</td>
+            <td><a href="#">@u.Tarih</td>
+            <td><a href="#">@u.Adet</td>
+            <td><a href="#">@u.ToplamTutar</td>
+            <td><a href="/Satıslar/SatısGetir/@u.SatisId" class="btn btn-success">Güncelle</td>
+        </tr>
+    }
+</table>
+<a href="/Satıslar/YeniSatis" class="btn btn-primary">Ürün Ekle</a>

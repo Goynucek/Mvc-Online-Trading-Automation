@@ -1,0 +1,19 @@
+﻿@model MvcOnlineWeb.Models.Classes.Cari
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_CariLayout.cshtml";
+}
+
+<h2>Kullanıcı Bilgi Güncelleme Paneli</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <td><label>Mail Adresiniz: @HttpContext.Current.User.Identity.Name</label></td>
+    </tr>
+    <tr><td>Adı: @Html.TextBoxFor(x => x.CariAd, new { @class = "form-control" })</td></tr>
+    <tr><td>Soyadı: @Html.TextBoxFor(x => x.CariSoyad, new { @class = "form-control" })</td></tr>
+    <tr><td>Şehir: @Html.TextBoxFor(x => x.CariSehir, new { @class = "form-control" })</td></tr>
+    <tr><td>Parola: @Html.TextBoxFor(x => x.CariPassword, new { @class = "form-control" })</td></tr>
+</table>
+<button class="btn btn-primary">Güncelle</button>
+

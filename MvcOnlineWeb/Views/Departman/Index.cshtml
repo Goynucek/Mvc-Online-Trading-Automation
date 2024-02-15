@@ -1,0 +1,37 @@
+﻿@using MvcOnlineWeb.Models.Classes
+@model List<Departman>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Departman</li>
+    </ol>
+</nav>
+
+<table class="table table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Departman Adı</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+            <th>Detaylar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var u in Model)
+        {
+            <tr>
+                <td><a href="#">@u.DepartmanId</td>
+                <td><a href="#">@u.DepartmanAd</td>
+                <td><a href="/Departman/DepartmanSil/@u.DepartmanId" class="btn btn-danger">Sil</td>
+                <td><a href="/Departman/DepartmanGetir/@u.DepartmanId" class="btn btn-success">Güncelle</td>
+                <td><a href="/Departman/DepartmanDetay/@u.DepartmanId" class="btn btn-info">Detaylar</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Departman/DepartmanEkle" class="btn btn-primary">Ürün Ekle</a>
+
